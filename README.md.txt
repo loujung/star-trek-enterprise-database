@@ -43,7 +43,20 @@ SELECT
     COUNT(e.id) AS total_episodes,
     MIN(e.episode_number) AS first_episode,
     MAX(e.episode_number) AS last_episode
+
+## 📂 SQL Queries
+
+This project includes a `/queries` folder containing reusable SQL scripts:
+
+- `01_season_summary.sql` — Overview of episodes per season
+- `02_list_season_episodes.sql` — List episodes from a specific season
+- `03_find_duplicates.sql` — Detect duplicate episode numbers (QA validation)
+- `04_find_missing_episodes.sql` — Identify seasons without episodes
+
+These queries simulate real-world data validation and reporting scenarios.
+
 FROM seasons s
 LEFT JOIN episodes e ON e.season_id = s.id
 GROUP BY s.season_number
 ORDER BY s.season_number;
+
